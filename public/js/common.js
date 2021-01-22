@@ -310,8 +310,9 @@ function eventHandler() {
 		},
 		on: {
 			init: function init() {
-				window.setTimeout(function () {//slideChange(0);
-				}, 800);
+				window.setTimeout(function () {
+					slideChange(0);
+				}, 1800);
 			}
 		}
 	});
@@ -351,6 +352,13 @@ function eventHandler() {
 		} catch (err) {
 			btn.classList.remove("active");
 		}
+	}
+
+	function playVideoOnly(video, btn) {
+		try {
+			video.play();
+			btn.classList.add("active");
+		} catch (err) {}
 	}
 
 	function pauseVideo(video, btn) {

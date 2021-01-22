@@ -311,8 +311,8 @@ function eventHandler() {
 		on: {
 			init: function () {
 				window.setTimeout(function (){
-					//slideChange(0);
-				}, 800)
+					slideChange(0);
+				}, 1800)
 			},
 		},
 	});
@@ -362,6 +362,15 @@ function eventHandler() {
 			btn.classList.remove("active");
 		}
 	}
+	function playVideoOnly(video, btn) {
+		try {
+			video.play();
+			btn.classList.add("active");
+		} catch(err) {
+
+		}
+	}
+
 	function pauseVideo(video, btn) {
 		video.pause();
 		btn.classList.remove("active");

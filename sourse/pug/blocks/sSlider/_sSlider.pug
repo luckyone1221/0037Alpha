@@ -17,7 +17,7 @@ mixin sSlider(data)
 
 mixin sSliderSlide()
 	.swiper-slide.video-slide-js
-		+e.VIDEO.video.video-js(src="videoplayback.mp4" preload)
+		+e.VIDEO.video.video-js(src="videoplayback.mp4" preload muted)
 		+e.slide-content.container
 			+e.row-btns.row.justify-content-center
 				.col-auto
@@ -25,7 +25,7 @@ mixin sSliderSlide()
 						+icon('play')
 						+icon('pause')
 				.col-auto
-					+e.BUTTON.control.volume-btn-js
+					+e.BUTTON.control.volume-btn-js.active
 						+icon('mute')
 						+icon('volume')
 			+e.row-btns.row.justify-content-center
