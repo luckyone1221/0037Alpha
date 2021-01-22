@@ -311,27 +311,27 @@ function eventHandler() {
 		on: {
 			init: function () {
 				window.setTimeout(function (){
-					slideChange(0);
+					//
+					let thisSlide = document.querySelectorAll('.video-slide-js')[0];
+
+					let currVideo = thisSlide.querySelector('.video-js');
+					$('.video-js').each(function (){
+						let currPlay = this.closest('.video-slide-js').querySelector('.play-btn-js');
+
+						//console.log(this, currPlay);
+						if (this === currVideo){
+							let flag = 0;
+							tryPlayVideo(this, currPlay, flag, 10);
+						}
+						else{
+							pauseVideo(this, currPlay);
+						}
+					})
+					//
 				}, 1800)
 			},
 		},
 	});
-	function slideChange(index){
-		let thisSlide = document.querySelectorAll('.video-slide-js')[index === undefined ? this.activeIndex : index];
-
-		let currVideo = thisSlide.querySelector('.video-js');
-		$('.video-js').each(function (){
-			let currPlay = this.closest('.video-slide-js').querySelector('.play-btn-js');
-
-			//console.log(this, currPlay);
-			if (this === currVideo){
-				playVideo(this, currPlay);
-			}
-			else{
-				pauseVideo(this, currPlay);
-			}
-		})
-	}
 
 
 	videoSlider.on('slideChange', function () {
@@ -362,12 +362,15 @@ function eventHandler() {
 			btn.classList.remove("active");
 		}
 	}
-	function playVideoOnly(video, btn) {
+	function tryPlayVideo(video, btn, flag) {
 		try {
 			video.play();
 			btn.classList.add("active");
-		} catch(err) {
-
+		}
+		catch(err) {
+			if (flag && flag < attempts){
+				tryPlayVideo(video, btn);
+			}
 		}
 	}
 

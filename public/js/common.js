@@ -311,26 +311,23 @@ function eventHandler() {
 		on: {
 			init: function init() {
 				window.setTimeout(function () {
-					slideChange(0);
+					//
+					var thisSlide = document.querySelectorAll('.video-slide-js')[0];
+					var currVideo = thisSlide.querySelector('.video-js');
+					$('.video-js').each(function () {
+						var currPlay = this.closest('.video-slide-js').querySelector('.play-btn-js'); //console.log(this, currPlay);
+
+						if (this === currVideo) {
+							var flag = 0;
+							tryPlayVideo(this, currPlay, flag, 10);
+						} else {
+							pauseVideo(this, currPlay);
+						}
+					}); //
 				}, 1800);
 			}
 		}
 	});
-
-	function slideChange(index) {
-		var thisSlide = document.querySelectorAll('.video-slide-js')[index === undefined ? this.activeIndex : index];
-		var currVideo = thisSlide.querySelector('.video-js');
-		$('.video-js').each(function () {
-			var currPlay = this.closest('.video-slide-js').querySelector('.play-btn-js'); //console.log(this, currPlay);
-
-			if (this === currVideo) {
-				playVideo(this, currPlay);
-			} else {
-				pauseVideo(this, currPlay);
-			}
-		});
-	}
-
 	videoSlider.on('slideChange', function () {
 		var thisSlide = document.querySelectorAll('.video-slide-js')[this.activeIndex];
 		var currVideo = thisSlide.querySelector('.video-js');
@@ -354,11 +351,15 @@ function eventHandler() {
 		}
 	}
 
-	function playVideoOnly(video, btn) {
+	function tryPlayVideo(video, btn, flag) {
 		try {
 			video.play();
 			btn.classList.add("active");
-		} catch (err) {}
+		} catch (err) {
+			if (flag && flag < attempts) {
+				tryPlayVideo(video, btn);
+			}
+		}
 	}
 
 	function pauseVideo(video, btn) {
