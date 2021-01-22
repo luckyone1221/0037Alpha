@@ -1,0 +1,134 @@
+.sSlider {
+	height: calc(100vh - var(--Headheight));
+
+	&__slider{
+		height: 100%;
+		background-color: rgba($blue, .5);
+		position: relative;
+		z-index: 1;
+
+		.video-prev,
+		.video-next{
+			border: none!important;
+			box-shadow: none!important;
+			outline: none!important;
+
+			.icon{
+				font-size: rem(40);
+				@include media-breakpoint-up(md){
+					font-size: rem(70);
+				}
+				color: $white;
+			}
+
+			&:hover{
+				transform: scale(1.1);
+			}
+		}
+
+		.swiper-slide{
+			height: auto;
+		}
+	}
+	&__controlls-cont{
+		position: absolute;
+		z-index: 5;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+
+		display: flex;
+		justify-content: space-between;
+	}
+	&__video{
+		width: 100%;
+		height: calc(100vh - var(--Headheight));
+		object-fit: cover;
+	}
+	&__slide-content{
+		position: absolute;
+		z-index: 5;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+
+		padding: rem(20) rem(30);
+		@include media-breakpoint-up(sm){
+			padding: rem(30) 0;
+		}
+		@include media-breakpoint-up(xl){
+			padding: rem(72) 0;
+		}
+	}
+
+	&__row-btns{
+		@include roww(20px);
+
+		& > *{
+			margin-bottom: 20px;
+		}
+
+	}
+
+	&__control{
+		@extend .btn;
+		padding: 0;
+
+		--fIconO: 1;
+		--lIconO: 0;
+		&.active{
+			--fIconO: 0;
+			--lIconO: 1;
+		}
+
+		.icon:first-child{
+			opacity: var(--fIconO);
+		}
+		.icon:last-child{
+			opacity: var(--lIconO);
+		}
+
+		@include mt();
+		position: relative;
+		width: rem(28);
+		height: rem(28);
+		border-radius: 50%;
+		border: 2px solid currentColor;
+		background-color: transparent;
+
+		color: $white;
+		&:hover{
+			color: $danger;
+		}
+
+		.icon{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			font-size: rem(15);
+			color: currentColor;
+
+			&-play{
+				transform: translateX(-40%) translateY(-50%);
+				font-size: rem(14);
+			}
+		}
+	}
+	&__btn{
+		@extend .btn-primary-frame;
+
+		clip-path: polygon(0 0,98% 0,100% 50%,98% 100%,0 100%,0 50%);
+		@include media-breakpoint-up(sm){
+			clip-path: polygon(0 0,97% 0,100% 50%,97% 100%,0 100%,0 50%);
+		}
+
+		width: 100%;
+		@include media-breakpoint-up(md){
+			width: rem(250);
+		}
+	}
+	&__{}
+	&__{}
+	&__{}
+} // end.sSlider

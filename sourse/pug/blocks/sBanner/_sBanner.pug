@@ -1,0 +1,19 @@
+mixin sBanner(imgSrc='sBaner.png')
+	// start sBanner
+	+b.SECTION.sBanner.section#sBanner&attributes(attributes)
+		+e.img
+			img(loading="lazy" src=`img/@2x/${imgSrc}` alt="")
+		.container
+			+e.row.row
+				.col-12.col-sm-auto.mb-4.mb-sm-0
+					+e.square
+				+e.title-col.col
+					if block
+						block
+					else
+						h2
+							span ЯХТЫ
+							span.let-sp до 30 м
+						+e.txt Скорость решает все.
+						+e.txt Стиль, мощь и комфорт.
+	// end sBanner

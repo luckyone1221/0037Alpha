@@ -1,0 +1,106 @@
+.sBanner {
+
+	color: $white;
+	background-color: $black;
+	&.black{
+		color: $black;
+		background-color: $white;
+		opacity: 1;
+	}
+
+	position: relative;
+	z-index: 1;
+
+	min-height: 320px;
+	@include media-breakpoint-up(sm){
+		min-height: 400px;
+	}
+	@include media-breakpoint-up(md){
+		min-height: 470px;
+	}
+	@include media-breakpoint-up(lg){
+		min-height: 550px;
+	}
+	@include media-breakpoint-up(xl){
+		min-height: 710px;
+	}
+
+	&__img{
+		opacity: .8;
+		@include media-breakpoint-up(xl){
+			opacity: 1;
+		}
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__row{
+		@include roww(15px);
+	}
+	&__square{
+		width: rem(50);
+		height: rem(50);
+		@include media-breakpoint-up(sm){
+			width: rem(52);
+			height: rem(52);
+		}
+		position: relative;
+		background-color: $danger;
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+
+			width: rem(19px);
+			height: rem(69px);
+
+			background-image: url(../img/svg/big-chevron-right.svg);
+			background-position: center;
+			background-size: contain;
+		}
+	}
+
+	&__title-col{
+		font-family: $mono;
+
+		h2{
+			font-size: rem(45);
+			line-height: 0.6;
+			@include media-breakpoint-up(sm){
+				font-size: rem(72px);
+				line-height: 0.6;
+			}
+
+			.let-sp{
+				margin-left: rem(18);
+				letter-spacing: 0.07em;
+			}
+
+			margin-bottom: rem(20);
+		}
+	}
+	&__txt{
+		font-size: rem(30);
+		@include media-breakpoint-up(sm){
+			font-size: rem(43);
+		}
+		line-height: 1;
+	}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+} // end.sBanner

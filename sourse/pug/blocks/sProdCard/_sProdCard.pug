@@ -1,0 +1,81 @@
+mixin sProdCard(data)
+	// start sProdCard
+	+b.SECTION.sProdCard#sProdCard&attributes(attributes)
+		.container
+			+b.section-title
+				h1 ITAMA 45S НА ПРОДАЖУ
+		+b.SECTION.sBanner.section#sBanner&attributes(attributes)
+			+e.img
+				img(loading="lazy" src=`img/@2x/prodCard.jpg` alt="")
+		+e.content.container
+			+e.char-txt технические характеристики
+			+e.row.row
+				+e.ch-col.col-12.col-lg-6.pt-xl-30
+					+e.UL.chars
+						li
+							strong Модель —
+							span Itama 45S
+						li
+							strong Длина —
+							span 13,82 м (45 футов)
+						li
+							strong Гости на борту (максимум) —
+							span 12 чел.
+						li
+							strong Гостевые каюты —
+							span 1/2
+						li
+							strong Каюты экипажа —
+							span 0
+						li
+							strong Скорость (узлы) в зависимости от двигателя —
+							span 34/29
+					+e.txt
+						p
+							| Планировка кокпита гарантирует, что ни
+							| один квадратный дюйм не пропадет даром:
+							| большая площадка для загара — идеальное
+							| место, чтобы провести время на свежем
+							| воздухе, а уникальные особенности гидрав-
+							| лического трапа и купальной платформы
+							| позволяет вам погрузиться в море.
+						p
+							| Чрезвычайно популярная, стильная и
+							| инновационная выдвижная дверь
+							|
+							strong Itama 75
+							|
+							| со ступенями в люке теперь доступна и на
+							| Itama 45S, что делает жизнь на борту еще
+							| более комфортной.
+						p
+							| Эта модель сохраняя неизменными морской
+							| стиль, подчеркнутый контрастом между
+							| белым интерьером и синим цветом платформы.
+							| Обилие белого придает интерьеру яркость
+							| и воздушность. Эффект усиливается
+							| за счет широких окон.
+						p
+							| Пространс тва в
+							|
+							strong Itama 45S
+							| разработаны
+							| с учетом индивидуальных потребностей
+							| каждого владельца: яхту можно заказать
+							| с одной или двумя гостевыми каютами,
+							| мастер-каюта всегда расположена
+							| носовой части и оборудована центральной
+							| двуспальной кроватью.
+				.col-12.col-lg-6
+					+prodCardPlanItem(1)
+					+prodCardPlanItem(2)
+					+prodCardPlanItem(3, 'План с 1-й каютой')
+					+prodCardPlanItem(4, 'План с 2-мя каютами')
+	// end sProdCard
+
+mixin prodCardPlanItem(imgNum, Txt)
+	+e.item.mb-30
+		+e.i-img
+			img(loading="lazy" src=`img/@2x/plan-${imgNum}.png` alt="")
+		if Txt
+			+e.i-txt=Txt

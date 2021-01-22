@@ -41,3 +41,23 @@ mixin mnu()
 		each linkPatch, linkName in nav
 			+e.LI.item( itemprop="item" ): +e.A.link(href= linkPatch  itemprop="url")= linkName
 //- /menu
+
+mixin mnu()
+	+b.UL.navMenu(itemscope itemtype="http://schema.org/SiteNavigationElement")
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") PERSHING
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") ITAMA
+		+e.LI.item--logo( itemprop="item")
+			+e.A.link(href="#"  itemprop="url")
+				img(loading="lazy" src="img/svg/logo.svg" alt="")
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") ЯХТЫ ДО 30 МЕТРОВ
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") ЯХТЫ БОЛЕЕ 30 МЕТРОВ
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") чартер
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") о нас
+		+e.LI.item( itemprop="item")
+			+e.A.link(href="#"  itemprop="url") новости

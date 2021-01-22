@@ -1,0 +1,35 @@
+mixin sSlider(data)
+	// start sSlider
+	+b.sSlider#sSlider&attributes(attributes)
+		+e.slider
+			+e.controlls-cont.container
+				+b.video-prev--js
+					+icon('slider-prev')
+				+b.video-next--js
+					+icon('slider-next')
+			.swiper-container.video-slider-js
+				.swiper-wrapper
+					+sSliderSlide()
+					+sSliderSlide()
+					+sSliderSlide()
+			.row
+	// end sSlider
+
+mixin sSliderSlide()
+	.swiper-slide.video-slide-js
+		+e.VIDEO.video.video-js(src="videoplayback.mp4" preload)
+		+e.slide-content.container
+			+e.row-btns.row.justify-content-center
+				.col-auto
+					+e.BUTTON.control.play-btn-js
+						+icon('play')
+						+icon('pause')
+				.col-auto
+					+e.BUTTON.control.volume-btn-js
+						+icon('mute')
+						+icon('volume')
+			+e.row-btns.row.justify-content-center
+				.col-12.col-sm-6.col-md-auto
+					+e.btn(href='#') купить яхту
+				.col-12.col-sm-6.col-md-auto
+					+e.btn(href='#') арендовать яхту

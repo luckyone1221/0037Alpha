@@ -5,11 +5,12 @@ $h: em(2);
 	display: block;
 	height: $h* 12;
 	position: relative;
-	color: $primary;
+	color: var(--burgerColor);
+
 	font-size: 32px;
 	width: 1em;
 	&.on {
-		color: #ffffff;
+		color: #ffffff!important;
 	}
 
 	span:after,
@@ -87,14 +88,13 @@ $h: em(2);
 	&:not(.active){
 		transform: translate3d(120%, 0,0);
 		opacity: 0;
-
 	}
 	@include mt(.6);
 	will-change: transform;
 
 	&__inner {
-		background-color: #c3c3c3;
-		padding: rem(20) 0;
+		background-color: $white;
+		padding: rem(30);
 		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -135,21 +135,33 @@ $h: em(2);
 		}
 	}
 
-	ul {
-		position: relative;
-	}
-
-	li {
+	//menu
+	.navMenu{
 		display: block;
-		margin: 0;
-		border-top: 1px solid rgba(255, 255, 255, .13);
 
-		a {
-			// font-size: 16px;
+		&__item{
+			padding: 0;
 
-			padding: 10px;
-			display: block;
+			&--logo{
+				display: none !important;
+			}
+		}
+		&__link{
+			padding: rem(10) 0;
+			text-align: left;
+			text-transform: uppercase;
+			text-decoration: none;
 
+			line-height: (19/16);
+			@include media-breakpoint-up(xxl){
+				letter-spacing: 0.13em;
+			}
+
+			color: $gray-900;
+			&:hover{
+				color: $black;
+				text-shadow: 0 0 1px rgba($black, .6);
+			}
 		}
 	}
 }

@@ -3,22 +3,34 @@ extends layout/main.pug
 
 include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug
+include ../blocks/sBanner/_sBanner.pug
+include ../blocks/sCatalog/_sCatalog.pug
+include ../blocks/sSlider/_sSlider.pug
+include ../blocks/sRepresent/_sRepresent.pug
 
 block variables
 	- let  mainPage= null
 block title
-	- let  title= 'title'
+	- let  title= 'Alpha'
 	title= title
 block pagecontent
-	//-+mob-mnu()
-	//-+header()
-	//-+top-nav()
-	//-+in-c("checkbox", "text")
-	+topLine() 
-	+headerBlock()
-	+sForm()
-	+sContact()
-	//-+footer()
-
-
-	
+	+mob-mnu()
+	+header()
+		+top-nav()
+	+sSlider()
+	+sRepresent()
+	+sBanner()(class="mb-20")
+	+sBanner('sBaner2.png')(class="mb-20 black")
+		h2
+			span ЯХТЫ
+			span.let-sp до 30 м
+		+e.txt Скорость решает все.
+		+e.txt Стиль, мощь и комфорт.
+	+sBanner('sBaner3.png')
+		h2
+			span ЧАРТЕР
+		+e.txt Несравненная роскошь
+		+e.txt полная конфиденциальность
+		+e.txt и 7-и звездочный сервис
+	+footBar()
+	+footer()

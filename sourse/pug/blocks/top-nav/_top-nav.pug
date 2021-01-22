@@ -1,30 +1,32 @@
 mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
-	+b.menu-mobile--js.d-lg-none
+	+b.menu-mobile--js.d-xl-none
 		+b.toggle-menu-mobile--js
 			span
 		+e.inner
-		
+			.top-nav__logo.top-nav__logo--big.mb-3(href="/")
+				img(loading="lazy" src="img/svg/logo.svg" alt="")
 			+mnu()
-			.text-right
 	//  мобильное меню
+
 mixin top-nav() 
 	// start top-nav
 	+b.top-nav.block-with-lazy
-		.container
-			.row
-				.col-auto.d-lg-none
+		+e.container.container
+			+e.row.row
+				+e.logo-xl-fixed.col-auto(href="/")
+					img(loading="lazy" src="img/svg/logo-fixed.svg" alt="")
+				.col.d-xl-none
+					+e.logo(href="/")
+						img(loading="lazy" src="img/svg/logo.svg" alt="")
+					+e.logo--fixed(href="/")
+						img(loading="lazy" src="img/svg/logo-fixed.svg" alt="")
+				.col.d-xl-block.d-none
+					+mnu()
+				.col-auto.d-xl-none
 					+b.toggle-menu-mobile--js
 						span
-				.col
-					+mnu()
+				.col-auto
+					+e.lang.navMenu__link.ms-sm-3(href="#") en
+
 					
 	// end top-nav

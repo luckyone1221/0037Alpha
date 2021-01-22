@@ -1,0 +1,60 @@
+mixin sRepresent(data)
+	// start sRepresent
+	+b.SECTION.sRepresent.section#sRepresent&attributes(attributes)
+		.container
+			+e.row.row
+				+e.photo-col.col-lg-5.col-xxl-auto
+					+e.photo
+						img(loading="lazy" src="img/@2x/owner.jpg" alt="")
+					+e.name.text-secondary.text-lg-end Олег Таранов
+				+e.content-col.col-lg-7.col-xxl
+					+e.logo-row.row.justify-content-center
+						.col-auto
+							+e.logo-img(href="#")
+								img(loading="lazy" src="img/svg/preshing.svg" alt="")
+						.col-auto
+							+e.logo-img(href="#")
+								img(loading="lazy" src="img/svg/itama.svg" alt="")
+					+b.section-title.text-center
+						h2
+							.first-line.text-start эксклюзивный
+							.second-line.text-end дистрибьютор яхт
+							.third-line.text-start
+								span
+									| Pershing
+									|
+								span.sm и
+								span
+									|
+									| Itama
+						p.text-center
+							| Владеть яхтой — все равно что жить на личном частном острове,
+							|
+							br.d-none.d-xxl-block
+							| где Вы можете наслаждаться уникальными моментами
+							|
+							br.d-none.d-xxl-block
+							| со своими близкими в полной безопасности и уединении.
+							|
+							br.d-none.d-xxl-block
+							| Мы подготовили для Вас эксклюзивные предложения,
+							|
+							br.d-none.d-xxl-block
+							| которые нельзя пропустить,
+							|
+							br.d-none.d-xxl-block
+							| чтобы сделать Ваш частный остров еще более особенным.
+							|
+							br.d-none.d-xxl-block
+							| Все наши предложения объединяет СКОРОСТЬ.
+							|
+							br.d-none.d-xxl-block
+							| «Скорость меняет все» — это не просто слоган.
+							|
+							br.d-none.d-xxl-block
+							| В этих словах концепция, стиль жизни — быть спортивным, быстрым,
+							|
+							br.d-none.d-xxl-block
+							| сильным, первым во всем и получать лучшее от жизни.
+
+	// end sRepresent

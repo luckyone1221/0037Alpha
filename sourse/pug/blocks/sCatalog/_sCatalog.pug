@@ -1,0 +1,28 @@
+mixin sCatalog(data)
+	// start sCatalog
+	+b.SECTION.sCatalog.section#sCatalog&attributes(attributes)
+		.container
+			+e.row.row
+				+sCatalogItem(1, 'ITAMA 45S')
+					| 13,82 м (45 футов)
+					br
+					| Гости на борту (максимум) — 12 чел.
+				+sCatalogItem(2, 'PERSHING 5X')
+					| 16,51 м (54 фута)
+					br
+					| Гости на борту (максимум) — 12 чел.
+				+sCatalogItem(3, 'ITAMA 75')
+					| 23,54 м (77 футов)
+					br
+					| Гости на борту (максимум) — 16 чел.
+	// end sCatalog
+
+mixin sCatalogItem(imgNum, nameTxt, charTxt)
+	+e.col.col-lg-4
+		+e.item
+			+e.img(href="#")
+				img(loading="lazy" src=`img/@2x/yaht-${imgNum}.jpg` alt="")
+			+e.txt-contnent.text-center
+				+e.name(href="#")=nameTxt
+				+e.chars
+					block
