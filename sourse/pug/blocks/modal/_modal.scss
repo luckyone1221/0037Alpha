@@ -1,17 +1,57 @@
 .modal-win {
 	// display: block;
-	width: 100%;
-	position: relative;
+	width: 400px;
+	max-width: 100%;
 
-	.modal-content {
-		// max-width: 485px;
-		// padding-right: 40px 15px;
+	padding: rem(30) rem(25)!important;
+	@include media-breakpoint-up(sm){
+		padding: rem(30) rem(40)!important;
 	}
+	position: relative;
+	border-radius: rem(5);
 
 	.mfp-close {
 		color: $primary;
 		font-size: 40px;
 		font-weight: 100;
+	}
+
+	.form-wrap{
+		&__title{
+			font-weight: bold;
+			font-size: rem(24);
+			line-height: 1.2;
+
+			margin-bottom: rem(18);
+		}
+		&__descr{
+			font-size: rem(16);
+			margin-bottom: rem(25);
+		}
+		&__input-wrap{
+			width: 100%;
+			margin: 0 0 rem(15);
+			padding: 0;
+		}
+		&__input{
+			width: 100%;
+			margin: 0;
+			border-radius: rem(5);
+
+			padding: rem(10) rem(20);
+		}
+
+		&__btn{
+			@extend .btn;
+			@extend .btn-danger;
+			font-size: rem(18);
+			font-weight: bold;
+			width: 100%;
+			border-radius: rem(5);
+			padding: rem(10) rem(20);
+			margin-bottom: rem(20);
+		}
+		&__{}
 	}
 }
 
